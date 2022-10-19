@@ -866,7 +866,7 @@ function ajax(opts) {
       url = (0, _cachebustUrl["default"])(url);
     }
 
-    var xhr = new XMLHttpRequest();
+    var xhr = new content.XMLHttpRequest();
     (0, _assign["default"])(xhr, opts.xhrFields);
 
     xhr.onerror = function (event) {
@@ -902,6 +902,9 @@ function ajax(opts) {
       }
     };
 
+    // TODO fix how this is requesting with CORS
+    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#xhr_and_fetch
+    // Detect browser?
     xhr.open(method, url, true);
 
     if (opts.headers) {

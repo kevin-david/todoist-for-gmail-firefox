@@ -16,7 +16,8 @@
 
     "content_scripts": [{
         "matches": ["http://mail.google.com/*",
-                    "https://mail.google.com/*"],
+                    "https://mail.google.com/*",
+                    "https://www.inboxsdk.com/*"],
         "js": ["inboxsdk.js", "gmail_ext.js", "anywhere.js"],
         "run_at": "document_end"
     }],
