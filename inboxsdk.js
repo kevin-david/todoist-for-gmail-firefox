@@ -902,9 +902,6 @@ function ajax(opts) {
       }
     };
 
-    // TODO fix how this is requesting with CORS
-    // https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts#xhr_and_fetch
-    // Detect browser?
     xhr.open(method, url, true);
 
     if (opts.headers) {
@@ -1630,6 +1627,7 @@ var PlatformImplementationLoader = {
       if (!global.__InboxSDKImpLoader) {
         return PlatformImplementationLoader._loadScript().then(function () {
           if (!global.__InboxSDKImpLoader) {
+            // TODO: This is still failing despite the script being downloaded successfully
             throw new Error('Implementation file did not load correctly');
           }
         });
